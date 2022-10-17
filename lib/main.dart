@@ -20,9 +20,9 @@ void main() {
             border: Border.all(width: 2, color: Colors.red),
             color: Colors.limeAccent,
             borderRadius: BorderRadius.circular(10)),
-        child: Column( 
+        child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 width: 100,
@@ -49,7 +49,6 @@ void main() {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
               ),
             ]),
-            
       ),
     ),
   )));
