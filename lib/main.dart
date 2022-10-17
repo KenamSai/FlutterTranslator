@@ -1,7 +1,58 @@
+import 'dart:html';
+import 'dart:math';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+      home: Scaffold(
+    appBar: AppBar(
+      title: Text("FLUTTER"),
+      centerTitle: true,
+    ),
+    body: Center(
+      child: Container(
+        height: 500,
+        width: 500,
+        //color: Colors.blue,
+        decoration: BoxDecoration(
+            border: Border.all(width: 2, color: Colors.red),
+            color: Colors.limeAccent,
+            borderRadius: BorderRadius.circular(10)),
+        child: Column( 
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.,
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.black),
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.purple),
+                    color: Colors.green,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 2, color: Colors.red),
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+              ),
+            ]),
+            
+      ),
+    ),
+  )));
 }
 
 class MyApp extends StatelessWidget {
