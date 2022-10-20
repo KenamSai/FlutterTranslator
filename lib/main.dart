@@ -1,12 +1,15 @@
-import 'dart:html';
-import 'dart:math';
-import 'dart:ui';
 
+
+import 'package:first_flutter/LoginPageValidation.dart';
 import 'package:flutter/material.dart';
+
+import 'login_page.dart';
 
 void main() {
   runApp(MaterialApp(
-      home: Scaffold(
+      home: Validations()));
+}
+     /* Scaffold(
     appBar: AppBar(
       title: Text("FLUTTER"),
       centerTitle: true,
@@ -20,7 +23,7 @@ void main() {
             border: Border.all(width: 2, color: Colors.red),
             color: Colors.limeAccent,
             borderRadius: BorderRadius.circular(10)),
-        child: Row(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -51,9 +54,7 @@ void main() {
             ]),
       ),
     ),
-  )));
-}
-
+  )));*/
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const LoginPage(),
     );
   }
 }
