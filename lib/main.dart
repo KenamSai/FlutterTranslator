@@ -1,13 +1,15 @@
 
 
 import 'package:first_flutter/LoginPageValidation.dart';
+import 'package:first_flutter/LoginTextSum.dart';
 import 'package:flutter/material.dart';
 
+import 'LoginFormValid.dart';
 import 'login_page.dart';
 
 void main() {
   runApp(MaterialApp(
-      home: Validations()));
+      home:LoginTextSum()));
 }
      /* Scaffold(
     appBar: AppBar(
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home:LoginTextSum(),
     );
   }
 }

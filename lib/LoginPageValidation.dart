@@ -36,7 +36,10 @@ class _ValidationsState extends State<Validations> {
         context: context,
         builder: (BuildContext) {
           return AlertDialog(
-            title: Text(message),
+            title: Text(
+              message,
+              style: TextStyle(color: Colors.red),
+            ),
             actions: [
               TextButton(
                 onPressed: () {
@@ -71,8 +74,8 @@ class _ValidationsState extends State<Validations> {
               cursorColor: Colors.blue,
               decoration: InputDecoration(
                 hintText: ("Enter username"),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: Colors.blue),
                 ),
               ),
@@ -86,8 +89,8 @@ class _ValidationsState extends State<Validations> {
               cursorColor: Colors.blue,
               decoration: InputDecoration(
                 hintText: ("Enter Password"),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide(color: Colors.blue),
                 ),
               ),
@@ -96,7 +99,7 @@ class _ValidationsState extends State<Validations> {
           TextButton(
             onPressed: ValidationsMethod,
             child: Text(
-              " LOG IN",
+              "LOG IN",
               style: TextStyle(color: Colors.blueAccent),
             ),
           ),
