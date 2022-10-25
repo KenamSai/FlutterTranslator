@@ -1,5 +1,5 @@
 import 'package:first_flutter/HomePageSum.dart';
-import 'package:first_flutter/routes/app_routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -49,7 +49,7 @@ class _LoginTextSumState extends State<LoginTextSum> {
                   onPressed: () {
                     // Navigator.of(context).push(
                     //     MaterialPageRoute(builder: (context) => HomePageSum()));
-                    Navigator.pushNamed(context, AppRoutes.homepagesum,arguments: ({"name":"Kenam"}));
+                   // Navigator.pushNamed(context, AppRoutes.homepagesum,arguments: ({"name":"Kenam"}));
                   },
                   child: Text(
                     "ADD",

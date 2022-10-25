@@ -1,4 +1,4 @@
-import 'package:first_flutter/routes/app_routes.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -24,7 +24,7 @@ class _SignUpState extends State<SignUp> {
       body: Form(
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, AppRoutes.password);
+            //Navigator.pushNamed(context, AppRoutes.password);
           },
           child: Text("Details"),
         ),

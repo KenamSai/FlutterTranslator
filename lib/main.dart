@@ -1,18 +1,18 @@
+import 'package:first_flutter/Country.dart';
 import 'package:first_flutter/LoginPageValidation.dart';
 import 'package:first_flutter/LoginTextSum.dart';
 import 'package:first_flutter/Project1/ForgotPwd.dart';
 import 'package:first_flutter/Project1/Login.dart';
 import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
-import 'package:first_flutter/routes/app_pages.dart';
-import 'package:first_flutter/routes/app_routes.dart';
+import 'package:first_flutter/screen_one.dart';
 import 'package:flutter/material.dart';
 import 'LoginFormValid.dart';
 import 'login_page.dart';
 
 void main() {
   //runApp(MaterialApp(home: getStart()));
-  runApp(MyApp());
+  runApp(Country());
 }
 
 /* Scaffold(
@@ -69,8 +69,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      initialRoute: AppRoutes.initial,
-      routes: AppPages.routes,
+  
       theme: ThemeData(
         // This is the theme of your application.
         //
