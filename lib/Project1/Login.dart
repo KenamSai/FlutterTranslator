@@ -1,4 +1,5 @@
 
+import 'package:first_flutter/routes/App_Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -44,7 +45,7 @@ class _LoginState extends State<Login> {
             ),
             child: TextButton(
               onPressed: () {
-             //   Navigator.pushNamed(context, AppRoutes.signup);
+              Navigator.popUntil(context, ModalRoute.withName(App_Routes.getstart));
               },
               child: Text(
                 "SIGN IN",

@@ -1,7 +1,4 @@
-import 'package:first_flutter/LoginTextSum.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomePageSum extends StatefulWidget {
   const HomePageSum({super.key});
@@ -13,19 +10,17 @@ class HomePageSum extends StatefulWidget {
 class _HomePageSumState extends State<HomePageSum> {
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)?.settings.arguments as Map;
+    final args = ModalRoute.of(context)?.settings.arguments as List;
     return Scaffold(
       appBar: AppBar(
         title: Text("Sum"),
       ),
       body: Column(children: [
-        Text(args["name"]),
+        Text("Sum is ${int.parse(args[0])+int.parse(args[1])}"),
         Center(
           child: TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LoginTextSum()),
-                );
+                Navigator.pop(context);
               },
               child: Text("BACK")),
         ),

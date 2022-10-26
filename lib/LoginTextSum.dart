@@ -1,8 +1,5 @@
-import 'package:first_flutter/HomePageSum.dart';
-
+import 'package:first_flutter/routes/App_Routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class LoginTextSum extends StatefulWidget {
   const LoginTextSum({super.key});
@@ -12,6 +9,8 @@ class LoginTextSum extends StatefulWidget {
 }
 
 class _LoginTextSumState extends State<LoginTextSum> {
+  TextEditingController _text1Controller = TextEditingController();
+  TextEditingController _text2Controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +25,7 @@ class _LoginTextSumState extends State<LoginTextSum> {
               child: Column(
             children: [
               TextFormField(
+                controller: _text1Controller,
                 decoration: InputDecoration(
                   labelText: "enter text1",
                   border: OutlineInputBorder(
@@ -36,6 +36,7 @@ class _LoginTextSumState extends State<LoginTextSum> {
                 ),
               ),
               TextFormField(
+                controller: _text2Controller,
                 decoration: InputDecoration(
                   labelText: "enter text2",
                   border: OutlineInputBorder(
@@ -47,9 +48,8 @@ class _LoginTextSumState extends State<LoginTextSum> {
               ),
               TextButton(
                   onPressed: () {
-                    // Navigator.of(context).push(
-                    //     MaterialPageRoute(builder: (context) => HomePageSum()));
-                   // Navigator.pushNamed(context, AppRoutes.homepagesum,arguments: ({"name":"Kenam"}));
+                    Navigator.pushNamed(context, App_Routes.homePagesum,
+                        arguments: [_text1Controller.text, _text2Controller.text]);
                   },
                   child: Text(
                     "ADD",

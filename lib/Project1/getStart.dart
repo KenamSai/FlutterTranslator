@@ -1,4 +1,5 @@
 import 'package:first_flutter/Project1/Login.dart';
+import 'package:first_flutter/routes/App_Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,10 +26,10 @@ class _getStartState extends State<getStart> {
             Container(
               child: TextButton(
                 onPressed: () {
-                  // Navigator.pushNamed(
-                  //   context,
-                  //   AppRoutes.signin,
-                  // );
+                   Navigator.pushNamed(
+                     context,
+                     App_Routes.login,
+                   );
                 },
                 child: Text(
                   "SIGN IN",
@@ -42,10 +43,24 @@ class _getStartState extends State<getStart> {
             Container(
               child: TextButton(
                 onPressed: () {
-                  //Navigator.pushNamed(context, AppRoutes.signup);
+                  Navigator.pushNamed(context, App_Routes.signup);
                 },
                 child: Text(
                   "SIGN UP",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+            ),
+             Container(
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, App_Routes.forgotPwd);
+                },
+                child: Text(
+                  "FORGOT PWD",
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
