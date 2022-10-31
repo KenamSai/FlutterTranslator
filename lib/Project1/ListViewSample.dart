@@ -52,7 +52,7 @@ class _ListViewSampleState extends State<ListViewSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("ListView"),
+        title: const Text("ListView"),
       ),
       body: ListView.builder(
           itemCount: stateList.length,
@@ -62,7 +62,7 @@ class _ListViewSampleState extends State<ListViewSample> {
               state: state,
               //callback implementation
               callbackValue: ((value) {
-                showAlert(state);
+                showAlert(value);
               }),
             );
           }

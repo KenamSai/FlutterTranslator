@@ -28,7 +28,7 @@ class _getStartState extends State<getStart> {
                 onPressed: () {
                    Navigator.pushNamed(
                      context,
-                     App_Routes.login,
+                     AppRoutes.login,
                    );
                 },
                 child: Text(
@@ -43,7 +43,7 @@ class _getStartState extends State<getStart> {
             Container(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, App_Routes.signup);
+                  Navigator.pushNamed(context, AppRoutes.signup);
                 },
                 child: Text(
                   "SIGN UP",
@@ -57,7 +57,7 @@ class _getStartState extends State<getStart> {
              Container(
               child: TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, App_Routes.forgotPwd);
+                  Navigator.pushNamed(context, AppRoutes.forgotPwd);
                 },
                 child: Text(
                   "FORGOT PWD",

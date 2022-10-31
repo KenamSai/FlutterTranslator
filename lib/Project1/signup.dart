@@ -27,7 +27,7 @@ class _SignUpState extends State<SignUp> {
           TextButton(
               onPressed: () {
                 Navigator.popUntil(
-                    context, ModalRoute.withName(App_Routes.getstart));
+                    context, ModalRoute.withName(AppRoutes.getstart));
               },
               child:Text("Home"))
         ],

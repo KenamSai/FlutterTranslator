@@ -73,6 +73,7 @@ class _ValidationsState extends State<Validations> {
               controller: _emailController,
               cursorColor: Colors.blue,
               decoration: InputDecoration(
+                prefixIcon: Icon(Icons.email),
                 hintText: ("Enter username"),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

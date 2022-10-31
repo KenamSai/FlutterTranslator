@@ -1,3 +1,4 @@
+import 'package:first_flutter/Widgets/inputTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -25,6 +26,7 @@ class _LoginFormValidState extends State<LoginFormValid> {
         .hasMatch(value);
   }
 
+  bool _isPasswordvisible = true;
   final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -33,65 +35,29 @@ class _LoginFormValidState extends State<LoginFormValid> {
         key: _formkey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 400, right: 400, top: 10, bottom: 10),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  labelText: "enter email",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                    borderSide: BorderSide(color: Colors.blue),
-                  ),
-                ),
-                controller: _emailController,
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return "enter email";
-                  } else if (!isValidEmail(value)) {
-                    return "enter valid email";
-                  }
-                }),
-              ),
+            inputTextField(
+              controller: _emailController,
+              hinttext: "please enter email",
+              prefixIcon: Icon(Icons.email_outlined),
+              textColor: Colors.red,
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 400, right: 400, top: 10, bottom: 10),
-              child: TextFormField(
-                obscureText: _passwordVisible,
-                decoration: InputDecoration(
-                  suffixIcon: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _passwordVisible = !_passwordVisible;
-                      });
-                    },
-                    child: Icon(Icons.remove_red_eye_outlined),
-                  ),
-                  labelText: "Enter Password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8),
-                    ),
-                    borderSide: BorderSide(color: Colors.blue),
-                  ),
-                ),
-                controller: _pwdController,
-                validator: ((value) {
-                  if (value!.isEmpty) {
-                    return "enter Password";
-                  } else if (!isValidPassWord(value)) {
-                    return "enter valid Password";
-                  }
-                }),
-              ),
+            inputTextField(
+              controller: _pwdController,
+              hinttext: "please enter Password",
+              prefixIcon: Icon(Icons.password),
+              isSecured: true,
+              isVisible: _isPasswordvisible,
+              onTap: () {
+                setState(() {
+                  _isPasswordvisible = !_isPasswordvisible;
+                });
+              },
             ),
             TextButton(
               onPressed: () {
-                if (_formkey.currentState!.validate()) {}
+                // if (_formkey.currentState!.validate()) {}
               },
               child: Text("LOG IN"),
             ),

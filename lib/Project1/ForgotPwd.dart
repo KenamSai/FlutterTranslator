@@ -25,7 +25,7 @@ class _ForgotPwdState extends State<ForgotPwd> {
         child: TextButton(
           onPressed: () {
             Navigator.popUntil(
-                 context, ModalRoute.withName(App_Routes.getstart));
+                 context, ModalRoute.withName(AppRoutes.getstart));
           },
           child: Text("Reset Password"),
         ),
