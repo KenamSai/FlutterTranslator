@@ -2,7 +2,7 @@ import 'package:first_flutter/Project1/getStart.dart';
 
 class AppRoutes {
   AppRoutes._();
-  static const initial = customer;
+  static const initial = mpin;
   static const getstart = "/getStart";
   static const login = "/Login Page";
   static const forgotPwd = "/forgot pwd";
@@ -14,5 +14,8 @@ class AppRoutes {
   static const dataview = "/DataView";
   static const dataentry = "/DataEntry";
   static const loginformvalid = "/Loginformvalid";
-  static const customer = "customer";
+  static const customer = "/customer";
+  static const shared = "/Sharedpref";
+  static const loginapi = "/apilogin";
+  static const mpin = "/Mpindata";
 }

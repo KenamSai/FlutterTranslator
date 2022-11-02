@@ -1,3 +1,4 @@
+import 'package:first_flutter/API_Integration/LoginApi.dart';
 import 'package:first_flutter/Country.dart';
 import 'package:first_flutter/Customer/Customer.dart';
 import 'package:first_flutter/DataEntry.dart';
@@ -5,11 +6,13 @@ import 'package:first_flutter/DataView.dart';
 import 'package:first_flutter/HomePageSum.dart';
 import 'package:first_flutter/LoginFormValid.dart';
 import 'package:first_flutter/LoginTextSum.dart';
+import 'package:first_flutter/MpinUserData.dart';
 import 'package:first_flutter/Project1/ForgotPwd.dart';
 import 'package:first_flutter/Project1/ListViewSample.dart';
 import 'package:first_flutter/Project1/Login.dart';
 import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
+import 'package:first_flutter/Shared_preferences/shared.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
 
 import 'package:flutter/material.dart';
@@ -17,19 +20,21 @@ import 'package:flutter/material.dart';
 class AppPages {
   static Map<String, WidgetBuilder> get routes {
     return {
-      AppRoutes.getstart:(context) => getStart(),
-      AppRoutes.login:(context) => Login(),
-      AppRoutes.signup:(context) => SignUp(),
-      AppRoutes.forgotPwd:(context) => ForgotPwd(),
-      AppRoutes.country:(context) => Country(),
-      AppRoutes.textsum:(context) => LoginTextSum(),
-      AppRoutes.homePagesum:(context) => HomePageSum(),
-      AppRoutes.listview:(context) => ListViewSample(),
-      AppRoutes.dataview:(context) => DataView(),
-      AppRoutes.dataentry:(context) => DataEntry(),
-      AppRoutes.loginformvalid:((context) => LoginFormValid()),
-      AppRoutes.customer:(context) => Customer(),
-      
+      AppRoutes.getstart: (context) => getStart(),
+      AppRoutes.login: (context) => Login(),
+      AppRoutes.signup: (context) => SignUp(),
+      AppRoutes.forgotPwd: (context) => ForgotPwd(),
+      AppRoutes.country: (context) => Country(),
+      AppRoutes.textsum: (context) => LoginTextSum(),
+      AppRoutes.homePagesum: (context) => HomePageSum(),
+      AppRoutes.listview: (context) => ListViewSample(),
+      AppRoutes.dataview: (context) => DataView(),
+      AppRoutes.dataentry: (context) => DataEntry(),
+      AppRoutes.loginformvalid: ((context) => LoginFormValid()),
+      AppRoutes.customer: (context) => Customer(),
+      AppRoutes.shared: (context) => shared(),
+      AppRoutes.loginapi: (context) => LoginApi(),
+      AppRoutes.mpin:(context) => MpinUserData(),
     };
   }
 }

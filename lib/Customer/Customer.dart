@@ -28,7 +28,7 @@ class _CustomerState extends State<Customer> {
                   child: CircleAvatar(
                 radius: 40,
                 backgroundImage: NetworkImage(
-                    "https://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg"),
+                    jsonResult["cphoto"]),
               )),
               Data_Row_Component("flag", jsonResult["flag"]),
               Data_Row_Component("cid", jsonResult["cid"]),
