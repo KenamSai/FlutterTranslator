@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:first_flutter/CONSTANTS/apiConstants.dart';
-import 'package:first_flutter/MpinList.dart';
+import 'package:first_flutter/MpinModelClass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -13,6 +13,7 @@ class MpinUserData extends StatefulWidget {
 }
 
 class _MpinUserDataState extends State<MpinUserData> {
+  MpinModelClass? Mpindata;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,13 +22,24 @@ class _MpinUserDataState extends State<MpinUserData> {
           child: Text("MPIN User data"),
         ),
       ),
-      body: Container(
-        color: Colors.amberAccent,
-        // child: ListView.builder(
-        //     itemCount: 0,
-        //     itemBuilder: ((context, index) {
-        //       return MpinList();
-        //     })),
+      body: Center(
+        child: Container(
+          child: Column(
+           
+            children: [
+              Column(
+                children: [
+                Text("status:${Mpindata?.status}",textAlign: TextAlign.start,),
+                Text("Name:${Mpindata?.eMPNAME}"),
+                Text("Designation:${Mpindata?.dESIGNATION}"),
+                Text("MOBILE NO:${Mpindata?.mOBILENO}"),
+                Text("message:${Mpindata?.message}"),
+                Text("mpin:${Mpindata?.mpin}"),
+                Text("OTP:${Mpindata?.otp}"),
+              ]),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -39,18 +51,21 @@ class _MpinUserDataState extends State<MpinUserData> {
     fetchtheData();
   }
 
-  fetchtheData()  async {
-      final requestUrl =
-          apiConstants.baseUrl + apiConstants.endPoint + apiConstants.parametrs;
+  fetchtheData() async {
+    final requestUrl = apiConstants.baseUrl + apiConstants.endPoint;
 
-      final _dioObject = Dio();
-      try {
-        final _response = await _dioObject
-            .get(requestUrl);
-        print("response $_response");
-      }on DioError catch (e) {
-        print("error");
-      }
+    final _dioObject = Dio();
+    Map<String, dynamic> params = {"MOBILE_NO": 9100923132};
+    try {
+      final _response =
+          await _dioObject.get(requestUrl, queryParameters: params);
+      final data = MpinModelClass.fromJson(_response.data);
+      setState(() {
+        this.Mpindata = data;
+      });
+    //  print("response  : $_response");
+    } on DioError catch (e) {
+      print("error");
     }
   }
-
+}

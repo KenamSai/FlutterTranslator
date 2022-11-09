@@ -7,12 +7,15 @@ import 'package:first_flutter/HomePageSum.dart';
 import 'package:first_flutter/LoginFormValid.dart';
 import 'package:first_flutter/LoginTextSum.dart';
 import 'package:first_flutter/MpinUserData.dart';
+import 'package:first_flutter/OTPScreen.dart';
 import 'package:first_flutter/Project1/ForgotPwd.dart';
 import 'package:first_flutter/Project1/ListViewSample.dart';
 import 'package:first_flutter/Project1/Login.dart';
 import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
 import 'package:first_flutter/Shared_preferences/shared.dart';
+import 'package:first_flutter/cricketers/createCricketers.dart';
+import 'package:first_flutter/inputImage.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
 
 import 'package:flutter/material.dart';
@@ -35,6 +38,9 @@ class AppPages {
       AppRoutes.shared: (context) => shared(),
       AppRoutes.loginapi: (context) => LoginApi(),
       AppRoutes.mpin:(context) => MpinUserData(),
+      AppRoutes.otp:(context) => OTPScreen(),
+      AppRoutes.camera:(context) => inputImage(),
+      AppRoutes.cricket:(context) => createCricketers(),
     };
   }
 }
