@@ -21,4 +21,7 @@ class AppRoutes {
   static const otp="/OTP screen";
   static const camera="/camera";
   static const cricket="/cricket";
+  static const counterValue="/counter";
+  static const check="/check";
+
 }

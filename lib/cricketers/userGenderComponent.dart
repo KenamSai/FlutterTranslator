@@ -7,7 +7,7 @@ import 'package:group_radio_button/group_radio_button.dart';
 class userGenderComponent extends StatelessWidget {
   userGenderComponent({super.key});
 
-  final List<String> genderData = ["Male","Female","Murali"];
+  final List<String> genderData = ["Male","Female","Others"];
   @override
   Widget build(BuildContext context) {
     return Row(

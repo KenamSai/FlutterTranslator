@@ -14,8 +14,11 @@ import 'package:first_flutter/Project1/Login.dart';
 import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
 import 'package:first_flutter/Shared_preferences/shared.dart';
+import 'package:first_flutter/cricketers/Counter.dart';
+import 'package:first_flutter/cricketers/checkboxlist.dart';
 import 'package:first_flutter/cricketers/createCricketers.dart';
 import 'package:first_flutter/inputImage.dart';
+import 'package:first_flutter/main.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
 
 import 'package:flutter/material.dart';
@@ -41,6 +44,8 @@ class AppPages {
       AppRoutes.otp:(context) => OTPScreen(),
       AppRoutes.camera:(context) => inputImage(),
       AppRoutes.cricket:(context) => createCricketers(),
+      AppRoutes.counterValue:(context) => Counter(),
+      AppRoutes.check:(context) => checkboxlist(),
     };
   }
 }

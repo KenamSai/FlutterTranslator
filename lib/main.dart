@@ -1,4 +1,5 @@
 import 'package:first_flutter/LoginPageValidation.dart';
+import 'package:first_flutter/db/database_helper.dart';
 import 'package:first_flutter/routes/App_Pages.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+     final db = DatabaseHelper.instance.database;
     return MaterialApp(
       title: 'Flutter Demo',
       initialRoute: AppRoutes.initial,
