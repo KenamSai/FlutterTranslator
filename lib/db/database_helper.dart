@@ -8,7 +8,7 @@ class DatabaseHelper {
   static final _databaseName = "FirstDatabase.db";
   static final _databaseVersion = 1;
 
-  static final table = 'cart';
+  static final table = 'Cricketers';
   // static final tableContact = 'contact';
 
   // make this a singleton class
@@ -80,7 +80,7 @@ country varchar(255)
 
   // All of the rows are returned as a list of maps, where each map is
   // a key-value list of columns.
-  Future<List<Map<String, dynamic>>> queryAllRows() async {
+  Future<List<Map<String, dynamic>>> queryAllRows(String s) async {
     Database db = await instance.database;
     return await db.query(table);
   }
@@ -98,6 +98,7 @@ country varchar(255)
             await db.rawQuery('SELECT COUNT(*) FROM $table')) ??
         0;
   }
+
 
   // // We are assuming here that the id column in the map is set. The other
   // // column values will be used to update the row.

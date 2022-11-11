@@ -15,12 +15,15 @@ import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
 import 'package:first_flutter/Shared_preferences/shared.dart';
 import 'package:first_flutter/cricketers/Counter.dart';
+import 'package:first_flutter/cricketers/RetrieveData.dart';
 import 'package:first_flutter/cricketers/checkboxlist.dart';
 import 'package:first_flutter/cricketers/createCricketers.dart';
 import 'package:first_flutter/inputImage.dart';
 import 'package:first_flutter/main.dart';
+import 'package:first_flutter/providerClass/counter_Provider.dart';
+import 'package:first_flutter/providerClass/dataentry.dart';
+import 'package:first_flutter/providerClass/dataview.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
-
 import 'package:flutter/material.dart';
 
 class AppPages {
@@ -46,6 +49,10 @@ class AppPages {
       AppRoutes.cricket:(context) => createCricketers(),
       AppRoutes.counterValue:(context) => Counter(),
       AppRoutes.check:(context) => checkboxlist(),
+      AppRoutes.retrievecricData:(context) => retrieveData(),
+      AppRoutes.counterData:(context) => counterProvider(),
+      AppRoutes.prodataentry:(context) => dataentry(),
+      AppRoutes.prodataview:(context) => dataview(),
     };
   }
 }

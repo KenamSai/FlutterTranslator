@@ -1,8 +1,12 @@
 import 'package:first_flutter/LoginPageValidation.dart';
 import 'package:first_flutter/db/database_helper.dart';
+import 'package:first_flutter/providerClass/counter_Provider.dart';
+import 'package:first_flutter/providerClass/providerData.dart';
+import 'package:first_flutter/providerClass/providerModel.dart';
 import 'package:first_flutter/routes/App_Pages.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   //runApp(MaterialApp(home: getStart()));
@@ -61,25 +65,31 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-     final db = DatabaseHelper.instance.database;
-    return MaterialApp(
-      title: 'Flutter Demo',
-      initialRoute: AppRoutes.initial,
-      routes: AppPages.routes,
-  
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+    final db = DatabaseHelper.instance.database;
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => providerModel()),
+         ChangeNotifierProvider(create: (_) => providerData()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        initialRoute: AppRoutes.initial,
+        routes: AppPages.routes,
+
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        //home: LoginTextSum(),
       ),
-      //home: LoginTextSum(),
     );
   }
 }

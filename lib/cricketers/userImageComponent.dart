@@ -16,40 +16,73 @@ class userImageComponent extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) {
-            return AlertDialog(
-              alignment: Alignment(0, 1),
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () async {
-                      final _imageGallery = await ImagePicker()
-                          .pickImage(source: ImageSource.camera);
-                      userGalleryImagePath.value = _imageGallery;
-                    },
-                    child: Icon(Icons.camera_enhance_outlined),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
-                    child: GestureDetector(
-                      onTap: () async {
-                        final _image = await ImagePicker()
-                            .pickImage(source: ImageSource.gallery);
-                        userGalleryImagePath.value = _image;
-                      },
-                      child: Icon(Icons.image),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: GestureDetector(
-                      onTap: (() {
-                        Navigator.pop(context);
-                      }),
-                      child: Text("Cancel"),
-                    ),
-                  ),
-                ],
+            return Container(
+              child: AlertDialog(
+                alignment: Alignment(0, 1),
+                title: Column(
+                  children: [
+                      Row(
+                        children: [
+                          Text("Profile photo"),
+                           Padding(
+                          padding: const EdgeInsets.only(left: 100.0),
+                          child: GestureDetector(
+                            onTap: (() {
+                              Navigator.pop(context);
+                            }),
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                        ],
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: GestureDetector(
+                              onTap: () async {
+                                final _imageGallery = await ImagePicker()
+                                    .pickImage(source: ImageSource.camera);
+                                userImagePath.value = _imageGallery;
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.camera_enhance_outlined,color: Colors.green,),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 40),
+                            child: GestureDetector(
+                              onTap: () async {
+                                final _image = await ImagePicker()
+                                    .pickImage(source: ImageSource.gallery);
+                                userImagePath.value = _image;
+                                Navigator.pop(context);
+                              },
+                              child: Icon(Icons.image,color: Colors.green,),
+                            ),
+                          ),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(left: 25.0),
+                          //   child: GestureDetector(
+                          //     onTap: (() {
+                          //       Navigator.pop(context);
+                          //     }),
+                          //     child: Icon(
+                          //       Icons.delete,
+                          //       color: Colors.grey,
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
@@ -60,7 +93,7 @@ class userImageComponent extends StatelessWidget {
         // userImagePath.value = _image;
       }),
       child: ValueListenableBuilder(
-        valueListenable: userGalleryImagePath,
+        valueListenable: userImagePath,
         builder: (context, value, child) {
           return value == null
               ? Padding(
