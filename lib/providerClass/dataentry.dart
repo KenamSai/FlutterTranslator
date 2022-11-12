@@ -37,7 +37,7 @@ class dataentry extends StatelessWidget {
               onPressed: (() {
                 final value =
                     _usernameController.text + "   " + _passwordController.text;
-                counterDataProvider.data.add(value);
+                counterDataProvider.addData(value);
                 Navigator.pop(
                   context,
                   MaterialPageRoute(

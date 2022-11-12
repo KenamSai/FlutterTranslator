@@ -11,23 +11,40 @@ class dataview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final counterDataProvider = Provider.of<providerData>(context);
+    final DataProvider = Provider.of<providerData>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Details of user")),
+        title: Center(
+          child: Text("Details of user"),
+        ),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           child: ListView.builder(
-            itemCount: counterDataProvider.data.length,
+            itemCount: providerData.data.length,
             itemBuilder: (context, index) {
-              final dataValue = counterDataProvider.data[index];
-              return Card(child: Center(child: Text("$dataValue")));
+              final dataValue = providerData.data[index];
+              return Center(
+                child: Card(
+                  color: Colors.indigo,
+                  child: Center(
+                    child: Text(
+                      "${dataValue.toString().toUpperCase()}",
+                      style: TextStyle(fontSize: 20.0, color: Colors.white),
+                    ),
+                  ),
+                ),
+              );
             },
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.add,
+          size: 30.0,
+        ),
         onPressed: () {
           Navigator.pushNamed(context, AppRoutes.prodataentry);
         },
