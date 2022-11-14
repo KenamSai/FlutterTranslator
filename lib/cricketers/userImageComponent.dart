@@ -31,7 +31,7 @@ class userImageComponent extends StatelessWidget {
                               Navigator.pop(context);
                             }),
                             child: Icon(
-                              Icons.delete,
+                              Icons.cancel_presentation,
                               color: Colors.grey,
                             ),
                           ),

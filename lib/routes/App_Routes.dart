@@ -2,7 +2,7 @@ import 'package:first_flutter/Project1/getStart.dart';
 
 class AppRoutes {
   AppRoutes._();
-  static const initial = prodataview;
+  static const initial = cricket;
   static const getstart = "/getStart";
   static const login = "/Login Page";
   static const forgotPwd = "/forgot pwd";
