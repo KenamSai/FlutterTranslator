@@ -27,5 +27,8 @@ class AppRoutes {
   static const counterData="/counter";
   static const prodataview="/prodataview";
   static const prodataentry="/prodataentry";
+  static const spinkit="/spinkit";
+  static const checkboxStr="/checkbox";
+  static const snack="/SnackBar";
 
 }

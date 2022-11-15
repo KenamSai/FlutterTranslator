@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:first_flutter/cricketers/cricketerModelClass.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path_provider/path_provider.dart';
@@ -7,6 +8,7 @@ import 'package:path_provider/path_provider.dart';
 class DatabaseHelper {
   static final _databaseName = "FirstDatabase.db";
   static final _databaseVersion = 1;
+  static final colId="id";
 
   static final table = 'Cricketers';
   // static final tableContact = 'contact';
@@ -41,14 +43,15 @@ class DatabaseHelper {
   // SQL code to create the database table
   Future _onCreate(Database db, int version) async {
     await db.execute('''
-          CREATE TABLE Cricketers
+          CREATE TABLE $table
 (
 name varchar(255),
 state varchar(255),
 gender varchar(255),
 dob varchar(255),
 userimage varchar(255),
-country varchar(255)
+country varchar(255),
+id INTEGER PRIMARY KEY AUTOINCREMENT
 );
 
           ''');
@@ -85,10 +88,10 @@ country varchar(255)
     return await db.query(table);
   }
 
-  // Future<List<Map<String, dynamic>>> queryAllRowsofContact() async {
-  //   Database db = await instance.database;
-  //   return await db.query(tableContact);
-  // }
+  Future<List<Map<String, dynamic>>> queryAllRowsofContact() async {
+    Database db = await instance.database;
+    return await db.query(table);
+  }
 
   // All of the methods (insert, query, update, delete) can also be done using
   // raw SQL commands. This method uses a raw query to give the row count.
@@ -98,28 +101,28 @@ country varchar(255)
             await db.rawQuery('SELECT COUNT(*) FROM $table')) ??
         0;
   }
-
-
   // // We are assuming here that the id column in the map is set. The other
   // // column values will be used to update the row.
   // Future<int> update(Map<String, dynamic> row) async {
   //   Database db = await instance.database;
-  //   int id = row[columnId];
-  //   return await db.update(table, row, where: '$columnId = ?', whereArgs: [id]);
+  //   int id = row[colId];
+  //   return await db.update(table, row, where: '$colId = ?', whereArgs: [id]);
   // }
 
   // // Deletes the row specified by the id. The number of affected rows is
   // // returned. This should be 1 as long as the row exists.
-  // Future<int> delete(int id) async {
-  //   Database db = await instance.database;
-  //   return await db.delete(table, where: '$columnId = ?', whereArgs: [id]);
-  // }
+  Future<int> delete(int value) async {
+    Database db = await instance.database;
+    return await db.delete(table, where: '$colId = ?', whereArgs: [value]);
+  }
 
   // Future<int> deleteContact(int id) async {
   //   Database db = await instance.database;
   //   return await db
   //       .delete(tableContact, where: '$columnId = ?', whereArgs: [id]);
   // }
+     
+
   //CRUD
   //Creation
   //Read

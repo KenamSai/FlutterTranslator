@@ -79,7 +79,7 @@ class _createCricketersState extends State<createCricketers> {
               child: Center(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.blue[900],
+                    color: Colors.green,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
                     ),
@@ -110,7 +110,7 @@ class _createCricketersState extends State<createCricketers> {
               child: Center(
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.blue[900],
+                    color: Colors.green,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10.0),
                     ),

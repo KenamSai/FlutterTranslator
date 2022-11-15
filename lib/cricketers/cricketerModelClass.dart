@@ -5,6 +5,7 @@ class cricketerModelClass {
   String? dob;
   String? userimage;
   String? country;
+  int? id;
 
   cricketerModelClass(
       {this.name,
@@ -12,7 +13,8 @@ class cricketerModelClass {
       this.gender,
       this.dob,
       this.userimage,
-      this.country});
+      this.country,
+      this.id});
 
   cricketerModelClass.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -21,6 +23,7 @@ class cricketerModelClass {
     dob = json['dob'];
     userimage = json['userimage'];
     country = json['country'];
+    id=json["id"];
   }
 
   Map<String, dynamic> toJson() {
@@ -31,6 +34,7 @@ class cricketerModelClass {
     data['dob'] = this.dob;
     data['userimage'] = this.userimage;
     data['country'] = this.country;
+    data["id"]=this.id;
     return data;
   }
 }

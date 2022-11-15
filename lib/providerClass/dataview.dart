@@ -11,7 +11,7 @@ class dataview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DataProvider = Provider.of<providerData>(context);
+    final counterDataProvider = Provider.of<providerData>(context);
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -22,9 +22,9 @@ class dataview extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Container(
           child: ListView.builder(
-            itemCount: providerData.data.length,
+            itemCount: counterDataProvider.data.length,
             itemBuilder: (context, index) {
-              final dataValue = providerData.data[index];
+              final dataValue =counterDataProvider.data[index];
               return Center(
                 child: Card(
                   color: Colors.indigo,

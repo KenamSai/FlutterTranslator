@@ -14,6 +14,7 @@ import 'package:first_flutter/Project1/Login.dart';
 import 'package:first_flutter/Project1/getStart.dart';
 import 'package:first_flutter/Project1/signup.dart';
 import 'package:first_flutter/Shared_preferences/shared.dart';
+import 'package:first_flutter/checkboxes/check_box.dart';
 import 'package:first_flutter/cricketers/Counter.dart';
 import 'package:first_flutter/cricketers/RetrieveData.dart';
 import 'package:first_flutter/cricketers/checkboxlist.dart';
@@ -24,6 +25,8 @@ import 'package:first_flutter/providerClass/counter_Provider.dart';
 import 'package:first_flutter/providerClass/dataentry.dart';
 import 'package:first_flutter/providerClass/dataview.dart';
 import 'package:first_flutter/routes/App_Routes.dart';
+import 'package:first_flutter/snack.dart';
+import 'package:first_flutter/spink.dart';
 import 'package:flutter/material.dart';
 
 class AppPages {
@@ -53,6 +56,9 @@ class AppPages {
       AppRoutes.counterData:(context) => counterProvider(),
       AppRoutes.prodataentry:(context) => dataentry(),
       AppRoutes.prodataview:(context) => dataview(),
+      AppRoutes.spinkit:(context) => loader(),
+      AppRoutes.checkboxStr:(context) => check_box(),
+      AppRoutes.snack:(context) => snack_bar(),
     };
   }
 }
