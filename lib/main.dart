@@ -1,58 +1,8 @@
-import 'dart:html';
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:translator/translator.dart';
 
 void main() {
-  runApp(MaterialApp(
-      home: Scaffold(
-    appBar: AppBar(
-      title: Text("FLUTTER"),
-      centerTitle: true,
-    ),
-    body: Center(
-      child: Container(
-        height: 500,
-        width: 500,
-        //color: Colors.blue,
-        decoration: BoxDecoration(
-            border: Border.all(width: 2, color: Colors.red),
-            color: Colors.limeAccent,
-            borderRadius: BorderRadius.circular(10)),
-        child: Column( 
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.,
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: Colors.black),
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: Colors.purple),
-                    color: Colors.green,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 2, color: Colors.red),
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-              ),
-            ]),
-            
-      ),
-    ),
-  )));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -99,19 +49,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter = _counter + 5;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -146,21 +83,36 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              '',
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final translator = GoogleTranslator();
+
+      final input = "Здравствуйте. Ты в порядке?";
+
+      translator.translate(input, from: 'ru', to: 'en').then(print);
+      // prints Hello. Are you okay?
+
+      var translation =
+          await translator.translate("వందనం!", to: 'en', from: 'te');
+      print(translation);
+      // prints Dart jest bardzo fajny!
+
+      print(
+        await "example".translate(to: 'pt'),
+      );
+    });
   }
 }
